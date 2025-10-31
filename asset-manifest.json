@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/spooky-trumps/static/css/main.e1f0d2f8.css",
-    "main.js": "/spooky-trumps/static/js/main.3b63d7d8.js",
+    "main.css": "/spooky-trumps/static/css/main.cd8d1bee.css",
+    "main.js": "/spooky-trumps/static/js/main.11cf172a.js",
     "static/js/453.a660cbc1.chunk.js": "/spooky-trumps/static/js/453.a660cbc1.chunk.js",
     "index.html": "/spooky-trumps/index.html",
-    "main.e1f0d2f8.css.map": "/spooky-trumps/static/css/main.e1f0d2f8.css.map",
-    "main.3b63d7d8.js.map": "/spooky-trumps/static/js/main.3b63d7d8.js.map",
+    "main.cd8d1bee.css.map": "/spooky-trumps/static/css/main.cd8d1bee.css.map",
+    "main.11cf172a.js.map": "/spooky-trumps/static/js/main.11cf172a.js.map",
     "453.a660cbc1.chunk.js.map": "/spooky-trumps/static/js/453.a660cbc1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1f0d2f8.css",
-    "static/js/main.3b63d7d8.js"
+    "static/css/main.cd8d1bee.css",
+    "static/js/main.11cf172a.js"
   ]
 }
