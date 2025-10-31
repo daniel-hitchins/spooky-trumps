@@ -138,6 +138,22 @@ function App() {
     <div className="App fade-in">
       <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
       <p>Wins: {score.wins} | Losses: {score.losses}</p>
+      
+      {!roundInProgress && !message && (
+        <div className="instructions">
+          <p className="spooky-instruction">
+            💀 <strong>Choose your doom wisely...</strong> 💀
+          </p>
+          <p className="instruction-text">
+            Click on one of your character's stats to battle the mysterious opponent! 
+            Will your <span className="highlight">🎨 Creativity</span> triumph over their dark arts? 
+            Can your <span className="highlight">💀 Scariness</span> send shivers down their spine?
+          </p>
+          <p className="warning-text">
+            ⚠️ <em>Choose carefully - their stats remain hidden until you commit to battle!</em> ⚠️
+          </p>
+        </div>
+      )}
 
       <div className="cards">
         {left && (
