@@ -58,15 +58,36 @@ body {
   box-shadow: 0 0 1.563rem orange;
   width: 16.25rem;
   transition: transform 0.3s ease;
+  animation: subtleFloat 6s ease-in-out infinite;
 }
-.card:hover { transform: scale(1.05); }
+
+.card:nth-child(odd) {
+  transform: rotate(-1deg);
+  animation-delay: -2s;
+}
+
+.card:nth-child(even) {
+  transform: rotate(1deg);
+  animation-delay: -4s;
+}
+
+.card:hover { 
+  transform: scale(1.05) rotate(0deg);
+  animation-play-state: paused;
+}
 
 .card-image {
   width: 100%;
   height: auto;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
-  box-shadow: 0 0 10px orange;
+  box-shadow: 0 0 0.625rem orange;
+  transition: transform 0.3s ease;
+  animation: gentleSway 8s ease-in-out infinite;
+}
+
+.card-image:hover {
+  transform: rotate(-2deg) scale(1.02);
 }
 
 button {
@@ -80,6 +101,21 @@ button {
   cursor: pointer;
   font-family: inherit;
   font-size: 1rem;
+  transition: transform 0.2s ease;
+  animation: subtleWobble 12s ease-in-out infinite;
+}
+
+button:nth-child(2n) {
+  animation-delay: -3s;
+}
+
+button:nth-child(3n) {
+  animation-delay: -6s;
+}
+
+button:hover {
+  transform: rotate(-1deg) scale(1.05);
+  animation-play-state: paused;
 }
 
 /* Override ALL possible button states to stay yellow */
@@ -293,6 +329,22 @@ button:-moz-any-link {
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0) rotate(var(--base-rotation, 0deg)); }
+  50% { transform: translateY(-0.25rem) rotate(var(--base-rotation, 0deg)); }
+}
+
+@keyframes gentleSway {
+  0%, 100% { transform: rotate(-0.5deg); }
+  50% { transform: rotate(0.5deg); }
+}
+
+@keyframes subtleWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.3deg); }
+  75% { transform: rotate(-0.3deg); }
 }
 
 /* Mobile responsive modal */
