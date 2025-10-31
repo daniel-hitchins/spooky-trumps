@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: radial-gradient(circle at top, #2b0033, #000);
+  background-attachment: fixed;
+  background-size: cover;
   min-height: 100vh;
+  color: #fff;
+  font-family: 'Creepster', cursive;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.App {
+  padding-bottom: 2rem;
+}
+
+.App h1 {
+  font-size: 2.5rem;
+  color: orange;
+  text-shadow: 0 0 10px red;
+  margin-top: 1rem;
+}
+
+.cards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px orange;
+  width: 260px;
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: scale(1.05); }
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0 10px orange;
+}
+
+button {
+  background: orange;
+  border: none;
+  color: black;
+  font-weight: bold;
+  margin: 0.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+button:hover { background: #ff6600; }
+
+.result {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.next {
+  background: #6600ff;
   color: white;
+  font-size: 1.2rem;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
 }
+.next:hover { background: #9933ff; }
 
-.App-link {
-  color: #61dafb;
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+  flex-direction: column;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fog {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  position: absolute;
+  animation: fog 4s infinite alternate;
 }
+@keyframes fog {
+  from { opacity: 0.3; }
+  to { opacity: 0.6; }
+}
+.loading-text {
+  font-size: 2rem;
+  color: orange;
+  text-shadow: 0 0 10px red;
+}
+.fade-in { animation: fadeIn 1s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
