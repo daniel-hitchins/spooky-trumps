@@ -70,7 +70,7 @@ body {
 }
 
 button {
-  background: orange;
+  background: #ffd700; /* Changed from orange to gold/yellow */
   border: none;
   color: black;
   font-weight: bold;
@@ -81,7 +81,19 @@ button {
   font-family: inherit;
   font-size: 1rem;
 }
-button:hover { background: #ff6600; }
+
+button:hover { 
+  background: #ff6600; 
+}
+
+button:focus {
+  background: #ffd700; /* Same as default to prevent focus color change */
+  outline: none; /* Remove focus outline on mobile */
+}
+
+button:active {
+  background: #ff6600; /* Only show different color during actual press */
+}
 
 .result {
   font-size: 2rem;

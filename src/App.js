@@ -115,8 +115,14 @@ function App() {
     }
   };
 
-  const compareStat = (stat) => {
+  const compareStat = (stat, event) => {
     if (!left || !right || roundInProgress) return;
+    
+    // Remove focus from button to prevent stuck focus state on mobile
+    if (event && event.target) {
+      event.target.blur();
+    }
+    
     setRoundInProgress(true);
     setStatsRevealed(true);
     const win = left[stat] > right[stat];
@@ -188,7 +194,7 @@ function App() {
             <img src={left.image} alt={left.firstName} className="card-image" />
             <h2>{left.displayName}</h2>
             <p>{left.role}</p>
-            {stats.map(s => <button key={s.key} onClick={() => compareStat(s.key)} disabled={roundInProgress}>{s.label}: {left[s.key]}</button>)}
+            {stats.map(s => <button key={s.key} onClick={(event) => compareStat(s.key, event)} disabled={roundInProgress}>{s.label}: {left[s.key]}</button>)}
           </div>
         )}
 
