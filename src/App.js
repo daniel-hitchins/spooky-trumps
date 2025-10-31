@@ -163,31 +163,54 @@ function App() {
         )}
       </div>
 
-      {message && <h2 className="result">{message}</h2>}
-      
-      {roundInProgress && (
-        <div className="progress-container">
-          <p style={{ opacity: 0.8, fontStyle: 'italic', margin: '10px 0 5px 0' }}>👻 Summoning next duel...</p>
-          <div style={{
-            width: '300px',
-            height: '8px',
-            backgroundColor: '#333',
-            borderRadius: '4px',
-            border: '1px solid #666',
-            overflow: 'hidden',
-            margin: '0 auto'
-          }}>
-            <div 
-              className="progress-bar"
-              style={{
-                width: `${progress}%`,
-                height: '100%',
-                backgroundColor: '#ff6b35',
-                borderRadius: '3px',
-                transition: 'width 0.05s ease-out',
-                boxShadow: '0 0 10px #ff6b35, inset 0 0 5px rgba(255,255,255,0.3)'
-              }}
-            ></div>
+      {/* Modal Dialog for Results and Progress */}
+      {(message || roundInProgress) && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            {message && (
+              <>
+                <h2 className="modal-result">{message}</h2>
+                <div className="revealed-stats">
+                  <div className="stat-comparison">
+                    <h3>Final Stats:</h3>
+                    {stats.map(s => (
+                      <div key={s.key} className="stat-row">
+                        <span className="stat-label">{s.label}</span>
+                        <span className="stat-values">
+                          <span className={left[s.key] > right[s.key] ? 'winning-stat' : 'losing-stat'}>
+                            {left[s.key]}
+                          </span>
+                          <span className="vs">vs</span>
+                          <span className={right[s.key] > left[s.key] ? 'winning-stat' : 'losing-stat'}>
+                            {right[s.key]}
+                          </span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+            
+            {roundInProgress && (
+              <div className="modal-progress">
+                <p className="progress-text">👻 Summoning next duel...</p>
+                <div className="progress-bar-container">
+                  <div 
+                    className="progress-bar"
+                    style={{
+                      width: `${progress}%`,
+                      height: '12px',
+                      backgroundColor: '#ff6b35',
+                      borderRadius: '6px',
+                      transition: 'width 0.05s ease-out',
+                      boxShadow: '0 0 15px #ff6b35, inset 0 0 8px rgba(255,255,255,0.3)'
+                    }}
+                  ></div>
+                </div>
+                <p className="countdown-text">{Math.ceil((5000 - (progress * 50)) / 1000)}s</p>
+              </div>
+            )}
           </div>
         </div>
       )}
