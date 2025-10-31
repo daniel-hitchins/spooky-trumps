@@ -67,6 +67,19 @@ function App() {
     setStatsRevealed(false);
     setRoundInProgress(false);
     setProgress(0);
+    
+    // Force remove focus from any buttons to prevent stuck orange state on mobile
+    setTimeout(() => {
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => {
+        button.blur();
+        button.classList.add('force-yellow');
+        setTimeout(() => button.classList.remove('force-yellow'), 50);
+      });
+      if (document.activeElement && document.activeElement.blur) {
+        document.activeElement.blur();
+      }
+    }, 100);
   };
 
   const playSound = (type) => {
@@ -118,9 +131,17 @@ function App() {
   const compareStat = (stat, event) => {
     if (!left || !right || roundInProgress) return;
     
-    // Remove focus from button to prevent stuck focus state on mobile
+    // Multiple approaches to remove focus from button on mobile
     if (event && event.target) {
       event.target.blur();
+      // Force remove focus after a short delay for stubborn mobile browsers
+      setTimeout(() => {
+        event.target.blur();
+        // Also remove focus from any other focused element
+        if (document.activeElement && document.activeElement.blur) {
+          document.activeElement.blur();
+        }
+      }, 100);
     }
     
     setRoundInProgress(true);
@@ -190,7 +211,7 @@ function App() {
 
       <div className="cards">
         {left && (
-          <div className="card">
+          <div className={`card ${roundInProgress ? 'round-in-progress' : ''}`}>
             <img src={left.image} alt={left.firstName} className="card-image" />
             <h2>{left.displayName}</h2>
             <p>{left.role}</p>

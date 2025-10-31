@@ -87,12 +87,22 @@ button:hover {
 }
 
 button:focus {
-  background: #ffd700; /* Same as default to prevent focus color change */
+  background: #ffd700 !important; /* Force yellow even when focused */
   outline: none; /* Remove focus outline on mobile */
 }
 
 button:active {
   background: #ff6600; /* Only show different color during actual press */
+}
+
+/* Force all buttons to be yellow when round is in progress */
+.round-in-progress button {
+  background: #ffd700 !important;
+}
+
+/* Ensure buttons return to yellow after interactions */
+button.force-yellow {
+  background: #ffd700 !important;
 }
 
 .result {
