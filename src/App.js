@@ -3,26 +3,26 @@ import "./App.css";
 
 // 👻 Garbage Pail Kids-style UX team with PNG images
 const spookyTeam = [
-  { firstName: "alanna", displayName: "🍌 Alanna Banana-Boo the UI Wizard", role: "User Experience Designer", image: "/images/alanna.png" },
-  { firstName: "alex", displayName: "🪓 Axed Alex the Pixel Pirate", role: "Principal Product Designer", image: "/images/alex.png" },
-  { firstName: "beth", displayName: "🧪 Buggy Beth the Prototype Poltergeist", role: "Senior UX Designer", image: "/images/beth.png" },
-  { firstName: "chris", displayName: "⚙️ Creepy Chris the Button Bandit", role: "Senior Product Designer", image: "/images/chris.png" },
-  { firstName: "christian", displayName: "👻 Christian Cranky the Flow Ghost", role: "Director of Experience & Service Design", image: "/images/christian.png" },
-  { firstName: "daniel", displayName: "👻 Debuggin' Dan the ARIA Apparition", role: "Senior Accessibility Engineer", image: "/images/dan.png" },
-  { firstName: "holly", displayName: "🔮 Holly Hocus-Pocus the Insight Witch", role: "Senior User Researcher", image: "/images/holly.png" },
-  { firstName: "james", displayName: "💻 Jumpy James the Code Gremlin", role: "Principal UX Engineer", image: "/images/james.png" },
-  { firstName: "julie", displayName: "🧠 Jelly Julie the Grid Goblin", role: "Principal UX Designer", image: "/images/julie.png" },
-  { firstName: "liam", displayName: "🐺 Laggy Liam the Wireframe Werewolf", role: "Senior User Experience Designer", image: "/images/liam.png" },
-  { firstName: "lisa", displayName: "🦙 Lisa Llama-Lumps the Survey Sorcerer", role: "Research & Service Design Lead", image: "/images/lisa.png" },
-  { firstName: "louise", displayName: "😈 Loopy Louise the Strategy Sprite", role: "Head of Experience Design", image: "/images/louise.png" },
-  { firstName: "morven", displayName: "🪄 Morbid Morven the Journey Mummy", role: "Principal Experience Designer", image: "/images/morven.png" },
-  { firstName: "rachel", displayName: "💉 Remedy Rachel the Healthcare Haunt", role: "Senior UX Designer - Health and Care", image: "/images/rachel.png" },
-  { firstName: "reeya", displayName: "🧪 Reeya Rumble the Prototype Pixie", role: "Senior UX Designer", image: "/images/reeya.png" },
-  { firstName: "sam", displayName: "📊 Spooky Sam the Data Dragon", role: "Product Analytics Executive", image: "/images/sam.png" },
-  { firstName: "samuel", displayName: "📜 Skeletal Samuel the Copy Catastrophe", role: "Senior Product Designer - Content", image: "/images/samuel.png" },
-  { firstName: "steve", displayName: "📈 Spreadsheet Steve the Number Ninja", role: "Group Product Owner", image: "/images/steve.png" },
-  { firstName: "zoe", displayName: "🖌️ Zany Zoe the Figma Fiend", role: "Senior UX Designer", image: "/images/zoe.png" },
-  { firstName: "jonathan", displayName: "🎨 Jonathan Juggle the Interface Imp", role: "Principal UI Designer", image: "/images/jonathan.png" }
+  { firstName: "alanna", displayName: "🍌 Alanna Banana-Boo the UI Wizard", role: "User Experience Designer", image: "./images/alanna.png" },
+  { firstName: "alex", displayName: "🪓 Axed Alex the Pixel Pirate", role: "Principal Product Designer", image: "./images/alex.png" },
+  { firstName: "beth", displayName: "🧪 Buggy Beth the Prototype Poltergeist", role: "Senior UX Designer", image: "./images/beth.png" },
+  { firstName: "chris", displayName: "⚙️ Creepy Chris the Button Bandit", role: "Senior Product Designer", image: "./images/chris.png" },
+  { firstName: "christian", displayName: "👻 Christian Cranky the Flow Ghost", role: "Director of Experience & Service Design", image: "./images/christian.png" },
+  { firstName: "daniel", displayName: "👻 Debuggin' Dan the ARIA Apparition", role: "Senior Accessibility Engineer", image: "./images/dan.png" },
+  { firstName: "holly", displayName: "🔮 Holly Hocus-Pocus the Insight Witch", role: "Senior User Researcher", image: "./images/holly.png" },
+  { firstName: "james", displayName: "💻 Jumpy James the Code Gremlin", role: "Principal UX Engineer", image: "./images/james.png" },
+  { firstName: "julie", displayName: "🧠 Jelly Julie the Grid Goblin", role: "Principal UX Designer", image: "./images/julie.png" },
+  { firstName: "liam", displayName: "🐺 Laggy Liam the Wireframe Werewolf", role: "Senior User Experience Designer", image: "./images/liam.png" },
+  { firstName: "lisa", displayName: "🦙 Lisa Llama-Lumps the Survey Sorcerer", role: "Research & Service Design Lead", image: "./images/lisa.png" },
+  { firstName: "louise", displayName: "😈 Loopy Louise the Strategy Sprite", role: "Head of Experience Design", image: "./images/louise.png" },
+  { firstName: "morven", displayName: "🪄 Morbid Morven the Journey Mummy", role: "Principal Experience Designer", image: "./images/morven.png" },
+  { firstName: "rachel", displayName: "💉 Remedy Rachel the Healthcare Haunt", role: "Senior UX Designer - Health and Care", image: "./images/rachel.png" },
+  { firstName: "reeya", displayName: "🧪 Reeya Rumble the Prototype Pixie", role: "Senior UX Designer", image: "./images/reeya.png" },
+  { firstName: "sam", displayName: "📊 Spooky Sam the Data Dragon", role: "Product Analytics Executive", image: "./images/sam.png" },
+  { firstName: "samuel", displayName: "📜 Skeletal Samuel the Copy Catastrophe", role: "Senior Product Designer - Content", image: "./images/samuel.png" },
+  { firstName: "steve", displayName: "📈 Spreadsheet Steve the Number Ninja", role: "Group Product Owner", image: "./images/steve.png" },
+  { firstName: "zoe", displayName: "🖌️ Zany Zoe the Figma Fiend", role: "Senior UX Designer", image: "./images/zoe.png" },
+  { firstName: "jonathan", displayName: "🎨 Jonathan Juggle the Interface Imp", role: "Principal UI Designer", image: "./images/jonathan.png" }
 ];
 
 const getRandomCard = () => spookyTeam[Math.floor(Math.random() * spookyTeam.length)];
