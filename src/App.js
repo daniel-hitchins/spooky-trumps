@@ -191,13 +191,13 @@ function App() {
 
   return (
     <div className="App fade-in">
-      <a href="#main-content" className="skip-link">👻 Skip to Spooky Content 👻</a>
-      <header>
-        <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
-        <p className="score-display">Wins: {score.wins} | Losses: {score.losses}</p>
-      </header>
+      <a href="#game-cards" className="skip-link">👻 Skip to Battle Cards 👻</a>
       
       <main id="main-content" className="main-game-area">
+        <header>
+          <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
+          <p className="score-display">Wins: {score.wins} | Losses: {score.losses}</p>
+        </header>
       
       {!roundInProgress && !message && (
         <div className="instructions">
@@ -212,10 +212,19 @@ function App() {
           <p className="warning-text">
             ⚠️ <em>Choose carefully - their stats remain hidden until you commit to battle!</em> ⚠️
           </p>
+          <div className="recognition-challenge">
+            <p className="mystery-text">
+              🕵️‍♀️ <strong>CURSED MYSTERY:</strong> These twisted souls were once mortal members of our UX team... 
+              <span className="highlight">Can you recognize who lurks beneath these ghoulish disguises?</span> 👁️
+            </p>
+            <p className="hint-text">
+              <em>Hint: Look closely at their roles and let their spooky essence guide you to their true identities...</em> 🔍✨
+            </p>
+          </div>
         </div>
       )}
 
-      <div className="cards">
+      <div id="game-cards" className="cards">
         {left && (
           <div className={`card ${roundInProgress ? 'round-in-progress' : ''}`}>
             <img src={left.image} alt={left.firstName} className="card-image" />

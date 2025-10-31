@@ -392,15 +392,53 @@ button:-moz-any-link {
 .highlight {
   color: #4ade80;
   font-weight: bold;
-  text-shadow: 0 0 8px #4ade80;
+  text-shadow: 0 0 1rem #4ade80;
 }
 
 .warning-text {
   font-size: 1rem;
   color: #ef4444;
-  text-shadow: 0 0 8px #ef4444;
+  text-shadow: 0 0 0.5rem #ef4444;
   margin-bottom: 0;
   animation: pulse 2s ease-in-out infinite;
+}
+
+/* Recognition Challenge Styling */
+.recognition-challenge {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(75, 0, 130, 0.3), rgba(25, 0, 51, 0.5));
+  border: 0.125rem dashed #9d4edd;
+  border-radius: 0.75rem;
+  animation: mysteryShadow 4s ease-in-out infinite alternate;
+}
+
+.mystery-text {
+  font-size: 1.1rem;
+  color: #c77dff;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 0.625rem rgba(199, 125, 255, 0.5);
+  line-height: 1.5;
+}
+
+.hint-text {
+  font-size: 0.95rem;
+  color: #e0aaff;
+  margin-bottom: 0;
+  font-style: italic;
+  text-shadow: 0 0 0.5rem rgba(224, 170, 255, 0.4);
+  opacity: 0.9;
+}
+
+@keyframes mysteryShadow {
+  0% { 
+    box-shadow: 0 0 0.938rem rgba(157, 78, 221, 0.3);
+    border-color: #9d4edd;
+  }
+  100% { 
+    box-shadow: 0 0 1.25rem rgba(199, 125, 255, 0.5);
+    border-color: #c77dff;
+  }
 }
 
 @keyframes spookyGlow {
@@ -430,5 +468,18 @@ button:-moz-any-link {
   
   .warning-text {
     font-size: 0.9rem;
+  }
+  
+  .recognition-challenge {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  
+  .mystery-text {
+    font-size: 1rem;
+  }
+  
+  .hint-text {
+    font-size: 0.85rem;
   }
 }
