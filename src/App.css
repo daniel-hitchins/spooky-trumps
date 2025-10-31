@@ -52,10 +52,18 @@ body {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, 
+    rgba(43, 0, 51, 0.8) 0%, 
+    rgba(26, 0, 31, 0.9) 25%, 
+    rgba(75, 0, 130, 0.3) 50%, 
+    rgba(139, 0, 139, 0.4) 75%, 
+    rgba(25, 0, 51, 0.95) 100%);
+  border: 0.125rem solid rgba(255, 107, 53, 0.6);
   padding: 1rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 1.563rem orange;
+  box-shadow: 
+    0 0 1.563rem rgba(255, 107, 53, 0.4),
+    inset 0 0 1.25rem rgba(138, 43, 226, 0.2);
   width: 16.25rem;
   transition: transform 0.3s ease;
   animation: subtleFloat 6s ease-in-out infinite;
@@ -116,6 +124,54 @@ button:nth-child(3n) {
 button:hover {
   transform: rotate(-1deg) scale(1.05);
   animation-play-state: paused;
+}
+
+/* Spooky Button Ripple Effect */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 0, 139, 0.4) 0%, rgba(75, 0, 130, 0.6) 40%, rgba(25, 0, 51, 0.8) 80%);
+  transform: translate(-50%, -50%);
+  transition: width 0.8s ease-out, height 0.8s ease-out, opacity 0.8s ease-out;
+  opacity: 0;
+  box-shadow: 0 0 1.25rem rgba(138, 43, 226, 0.4);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.3) 0%, rgba(139, 69, 19, 0.5) 30%, rgba(0, 0, 0, 0.7) 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.6s ease-out;
+  opacity: 0;
+  animation-delay: 0.1s;
+}
+
+button:active::before {
+  width: 400%;
+  height: 400%;
+  opacity: 1;
+}
+
+button:active::after {
+  width: 350%;
+  height: 350%;
+  opacity: 1;
 }
 
 /* Override ALL possible button states to stay yellow */
@@ -220,16 +276,22 @@ button:-moz-any-link {
 }
 
 .modal-content {
-  background: linear-gradient(145deg, #2b0033, #1a001f);
-  border: 0.125rem solid #ff6b35;
+  background: linear-gradient(145deg, 
+    rgba(43, 0, 51, 0.95) 0%, 
+    rgba(26, 0, 31, 0.98) 25%, 
+    rgba(75, 0, 130, 0.4) 50%, 
+    rgba(139, 0, 139, 0.5) 75%, 
+    rgba(25, 0, 51, 0.98) 100%);
+  border: 0.125rem solid rgba(255, 107, 53, 0.8);
   border-radius: 1.25rem;
   padding: 2rem;
   max-width: 90vw;
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 
-    0 0 1.875rem rgba(255, 107, 53, 0.5),
-    inset 0 0 1.25rem rgba(255, 255, 255, 0.1);
+    0 0 1.875rem rgba(255, 107, 53, 0.6),
+    inset 0 0 1.25rem rgba(138, 43, 226, 0.3),
+    0 0 3.125rem rgba(138, 43, 226, 0.2);
   text-align: center;
   animation: modalSlideIn 0.4s ease;
 }
@@ -243,6 +305,8 @@ button:-moz-any-link {
 
 .revealed-stats {
   margin: 1.5rem 0;
+  transform: rotate(-0.5deg);
+  animation: gentleStatsFloat 10s ease-in-out infinite;
 }
 
 .revealed-stats h3 {
@@ -259,6 +323,16 @@ button:-moz-any-link {
   padding: 0.5rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
+  transform: rotate(-0.5deg);
+  transition: transform 0.3s ease;
+}
+
+.stat-row:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+.stat-row:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .stat-label {
@@ -345,6 +419,11 @@ button:-moz-any-link {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(0.3deg); }
   75% { transform: rotate(-0.3deg); }
+}
+
+@keyframes gentleStatsFloat {
+  0%, 100% { transform: rotate(-0.5deg) translateY(0); }
+  50% { transform: rotate(0.5deg) translateY(-0.125rem); }
 }
 
 /* Mobile responsive modal */
