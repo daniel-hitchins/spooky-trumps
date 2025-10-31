@@ -164,7 +164,7 @@ function App() {
   return (
     <div className="App fade-in">
       <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
-      <p>Wins: {score.wins} | Losses: {score.losses}</p>
+      <p className="score-display">Wins: {score.wins} | Losses: {score.losses}</p>
       
       {!roundInProgress && !message && (
         <div className="instructions">

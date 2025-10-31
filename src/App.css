@@ -3,6 +3,13 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+html {
+  background: radial-gradient(circle at top, #2b0033, #000);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 body {
@@ -10,14 +17,23 @@ body {
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
   color: #fff;
   font-family: 'Creepster', cursive;
   text-align: center;
   overflow-x: hidden;
+  
+  /* Prevent mobile bounce scrolling white background */
+  overscroll-behavior: none;
 }
 
 .App {
   padding-bottom: 2rem;
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  background: radial-gradient(circle at top, #2b0033, #000);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .App h1 {
@@ -143,7 +159,7 @@ button:hover { background: #ff6600; }
 }
 
 .modal-result {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
   text-shadow: 0 0 15px currentColor;
   animation: pulse 1s ease-in-out;
@@ -248,7 +264,7 @@ button:hover { background: #ff6600; }
   }
   
   .modal-result {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
   
   .stat-row {
@@ -259,6 +275,16 @@ button:hover { background: #ff6600; }
   .stat-values {
     justify-content: center;
   }
+}
+
+/* Score Display */
+.score-display {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  margin: 1rem 0;
+  text-align: center;
 }
 
 /* Spooky Instructions */
@@ -276,7 +302,7 @@ button:hover { background: #ff6600; }
 }
 
 .spooky-instruction {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #ff6b35;
   margin-bottom: 1rem;
   text-shadow: 0 0 10px #ff6b35;
@@ -284,7 +310,7 @@ button:hover { background: #ff6600; }
 }
 
 .instruction-text {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.6;
   color: #e0e0e0;
   margin-bottom: 1rem;
