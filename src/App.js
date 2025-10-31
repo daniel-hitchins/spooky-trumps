@@ -70,22 +70,49 @@ function App() {
   };
 
   const playSound = (type) => {
-    const audio = new Audio(
-      type === "win"
-        ? "https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"
-        : "https://actions.google.com/sounds/v1/foley/punch_3.ogg"
-    );
-    audio.volume = 0.3;
-    
-    // Handle audio loading errors gracefully
-    audio.addEventListener('error', () => {
-      console.log('Audio failed to load - continuing without sound');
-    });
-    
-    audio.play().catch(() => {
-      // Silently handle play errors (e.g., user hasn't interacted with page yet)
-      console.log('Audio play failed - continuing without sound');
-    });
+    try {
+      // Create AudioContext for Web Audio API
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      
+      if (type === "win") {
+        // Create uplifting victory sound
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+        oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+        oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.4);
+      } else {
+        // Create ominous loss sound
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(200, audioContext.currentTime); // Low ominous tone
+        oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.5); // Drop down
+        oscillator.type = 'sawtooth'; // Harsh sound for loss
+        
+        gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+      }
+    } catch (error) {
+      // Silently handle audio context errors
+      console.log('Web Audio not supported - continuing without sound');
+    }
   };
 
   const compareStat = (stat) => {
