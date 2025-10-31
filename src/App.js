@@ -148,7 +148,7 @@ function App() {
     setRoundInProgress(true);
     setStatsRevealed(true);
     const win = left[stat] > right[stat];
-    setMessage(win ? `🎃 You Win! (${stat.toUpperCase()})` : `💀 You Lose! (${stat.toUpperCase()})`);
+    setMessage({ win, stat: stat.toUpperCase() });
     playSound(win ? "win" : "lose");
     setScore(prev => ({
       wins: prev.wins + (win ? 1 : 0),
@@ -195,7 +195,7 @@ function App() {
       
       <main id="main-content" className="main-game-area">
         <header>
-          <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
+          <h1>UX Team Creepy-Cards: Garbage Pail Chaos <span className="animated-pumpkin">🎃</span></h1>
           <p className="score-display">Wins: {score.wins} | Losses: {score.losses}</p>
         </header>
       
@@ -254,7 +254,17 @@ function App() {
           <div className="modal-content">
             {message && (
               <>
-                <h2 className="modal-result">{message}</h2>
+                <h2 className="modal-result">
+                  {message.win ? (
+                    <>
+                      <span className="animated-pumpkin">🎃</span> You Win! ({message.stat})
+                    </>
+                  ) : (
+                    <>
+                      <span className="animated-skull">💀</span> You Lose! ({message.stat})
+                    </>
+                  )}
+                </h2>
                 <div className="revealed-stats">
                   <div className="stat-comparison">
                     <h3>Final Stats:</h3>
