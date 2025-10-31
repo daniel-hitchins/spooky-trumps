@@ -68,13 +68,14 @@ function App() {
     setRoundInProgress(false);
     setProgress(0);
     
-    // Force remove focus from any buttons to prevent stuck orange state on mobile
+    // Nuclear option: force reset all button styles on mobile
     setTimeout(() => {
       const buttons = document.querySelectorAll('button');
       buttons.forEach(button => {
         button.blur();
-        button.classList.add('force-yellow');
-        setTimeout(() => button.classList.remove('force-yellow'), 50);
+        button.style.background = '#ffd700';
+        button.style.backgroundColor = '#ffd700';
+        button.classList.remove(':focus', ':active', ':hover');
       });
       if (document.activeElement && document.activeElement.blur) {
         document.activeElement.blur();
@@ -190,8 +191,13 @@ function App() {
 
   return (
     <div className="App fade-in">
-      <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
-      <p className="score-display">Wins: {score.wins} | Losses: {score.losses}</p>
+      <a href="#main-content" className="skip-link">👻 Skip to Spooky Content 👻</a>
+      <header>
+        <h1>UX Team Creepy-Cards: Garbage Pail Chaos 🎃</h1>
+        <p className="score-display">Wins: {score.wins} | Losses: {score.losses}</p>
+      </header>
+      
+      <main id="main-content" className="main-game-area">
       
       {!roundInProgress && !message && (
         <div className="instructions">
@@ -284,6 +290,7 @@ function App() {
           </div>
         </div>
       )}
+      </main>
     </div>
   );
 }
