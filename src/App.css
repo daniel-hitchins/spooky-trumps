@@ -7,15 +7,21 @@ html, body {
 }
 
 html {
-  background: radial-gradient(circle at top, #2b0033, #000);
+  background: radial-gradient(circle at top, #2b0033, #000) !important;
   background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
+  /* Prevent overscroll white background */
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }
 
 body {
-  background: radial-gradient(circle at top, #2b0033, #000);
+  background: radial-gradient(circle at top, #2b0033, #000) !important;
   background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
   min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport height for mobile */
   color: #fff;
@@ -23,17 +29,28 @@ body {
   text-align: center;
   overflow-x: hidden;
   
-  /* Prevent mobile bounce scrolling white background */
-  overscroll-behavior: none;
+  /* Comprehensive mobile bounce scrolling prevention */
+  overscroll-behavior: none !important;
+  overscroll-behavior-y: none !important;
+  overscroll-behavior-x: none !important;
+  /* Additional mobile fixes */
+  -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 .App {
   padding-bottom: 2rem;
   min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport height for mobile */
-  background: radial-gradient(circle at top, #2b0033, #000);
+  min-height: calc(100vh + 5rem); /* Extra height to cover overscroll */
+  background: radial-gradient(circle at top, #2b0033, #000) !important;
   background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
+  /* Ensure background covers overscroll areas */
+  position: relative;
+  overflow-x: hidden;
+  overscroll-behavior: none !important;
 }
 
 .App h1 {
@@ -355,8 +372,10 @@ button:-moz-any-link {
 }
 
 .losing-stat {
-  color: #ef4444;
-  opacity: 0.7;
+  color: #ff4757;
+  opacity: 1;
+  text-shadow: 0 0 0.625rem rgba(255, 71, 87, 0.8);
+  font-weight: bold;
 }
 
 .vs {
